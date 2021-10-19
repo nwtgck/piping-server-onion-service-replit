@@ -1,0 +1,2 @@
+run = "./start.bash"
+onBoot = "./start.bash"
