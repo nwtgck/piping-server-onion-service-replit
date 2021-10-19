@@ -22,9 +22,9 @@ if [ ! -f $BIN_PATH ]; then
   )
 fi
 
-mkdir -p /home/runner/piping-server-onion-service/var/log/tor/
-mkdir -p /home/runner/piping-server-onion-service/var/lib/tor/hidden_service/
-chmod 700 /home/runner/piping-server-onion-service/var/lib/tor/hidden_service/
+mkdir -p /home/runner/psuedo_root/var/log/tor/
+mkdir -p /home/runner/psuedo_root/var/lib/tor/hidden_service/
+chmod 700 /home/runner/psuedo_root/var/lib/tor/hidden_service/
 
 $BIN_PATH --http-port=8080 &
 tor -f torrc &

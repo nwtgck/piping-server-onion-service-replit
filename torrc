@@ -37,7 +37,7 @@
 ## may provide sensitive information to an attacker who obtains the logs.
 ##
 ## Send all messages of level 'notice' or higher to /var/log/tor/notices.log
-Log notice file /home/runner/piping-server-onion-service/var/log/tor/notices.log
+Log notice file /home/runner/psuedo_root/var/log/tor/notices.log
 ## Send every possible message to /var/log/tor/debug.log
 #Log debug file /var/log/tor/debug.log
 ## Use the system log instead of Tor's logfiles
@@ -48,7 +48,7 @@ Log notice file /home/runner/piping-server-onion-service/var/log/tor/notices.log
 ## The directory for keeping all the keys/etc. By default, we store
 ## things in $HOME/.tor on Unix, and in Application Data\tor on Windows.
 # DataDirectory /var/lib/tor
-DataDirectory /home/runner/piping-server-onion-service/var/lib/tor
+DataDirectory /home/runner/psuedo_root/var/lib/tor
 
 
 ## The port on which Tor will listen for local connections from Tor
@@ -69,8 +69,8 @@ DataDirectory /home/runner/piping-server-onion-service/var/lib/tor
 ## address y:z.
 
 # HiddenServiceDir /var/lib/tor/hidden_service/
-# cmd: chmod 700 /home/runner/piping-server-onion-service/var/lib/tor/hidden_service/
-HiddenServiceDir /home/runner/piping-server-onion-service/var/lib/tor/hidden_service/
+# cmd: chmod 700 /home/runner/psuedo_root/var/lib/tor/hidden_service/
+HiddenServiceDir /home/runner/psuedo_root/var/lib/tor/hidden_service/
 HiddenServicePort 80 localhost:8080
 # HiddenServicePort 443 piping:443
 
