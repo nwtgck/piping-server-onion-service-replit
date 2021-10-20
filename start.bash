@@ -1,4 +1,4 @@
-#! /bin/bash -xeu
+#! /bin/bash -eu
 
 # Piping Server version
 VERSION=v1.7.0-2
@@ -25,6 +25,11 @@ fi
 mkdir -p /home/runner/psuedo_root/var/log/tor/
 mkdir -p /home/runner/psuedo_root/var/lib/tor/hidden_service/
 chmod 700 /home/runner/psuedo_root/var/lib/tor/hidden_service/
+
+# NOTE: public_key and hostname are automatically generated from the private key
+echo "${HS_ED25519_SECRET_KEY_BASE64}" | base64 -d > /home/runner/psuedo_root/var/lib/tor/hidden_service/hs_ed25519_secret_key
+
+unset HS_ED25519_SECRET_KEY_BASE64;
 
 $BIN_PATH --http-port=8080 &
 tor -f torrc &

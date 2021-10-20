@@ -5,5 +5,5 @@
 ## Get hostname
 
 ```bash
-cat /home/runner/psuedo_root/var/lib/tor/hidden_service/hostname 
+cat /home/runner/psuedo_root/var/lib/tor/hidden_service/hostname
 ```
