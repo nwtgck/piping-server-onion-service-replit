@@ -1,6 +1,6 @@
 { pkgs }: {
-	deps = [
+  deps = [
     pkgs.tor
     pkgs.lsof
-	];
+  ];
 }
