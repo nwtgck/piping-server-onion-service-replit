@@ -1,6 +1,6 @@
 # piping-server-onion-service-replit
 
-[Piping Server](https://github.com/nwtgck/piping-server) as Onion Service
+[Piping Server](https://github.com/nwtgck/piping-server) as [Onion Service](https://community.torproject.org/onion-services)
 
 ## How to self host on Replit
 
