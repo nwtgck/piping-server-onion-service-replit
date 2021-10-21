@@ -31,6 +31,8 @@ echo "${HS_ED25519_SECRET_KEY_BASE64}" | base64 -d > /home/runner/psuedo_root/va
 
 unset HS_ED25519_SECRET_KEY_BASE64;
 
+trap 'kill $(jobs -p)' EXIT
+
 $BIN_PATH --http-port=8080 &
 tor -f torrc &
 wait
