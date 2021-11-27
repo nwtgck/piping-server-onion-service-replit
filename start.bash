@@ -1,4 +1,4 @@
-#! /bin/bash -eu
+#! /bin/bash -e
 
 # Piping Server version
 VERSION=v1.8.0
@@ -26,10 +26,16 @@ mkdir -p /home/runner/psuedo_root/var/log/tor/
 mkdir -p /home/runner/psuedo_root/var/lib/tor/hidden_service/
 chmod 700 /home/runner/psuedo_root/var/lib/tor/hidden_service/
 
-# NOTE: public_key and hostname are automatically generated from the private key
-echo "${HS_ED25519_SECRET_KEY_BASE64}" | base64 -d > /home/runner/psuedo_root/var/lib/tor/hidden_service/hs_ed25519_secret_key
+if [[ -z "${HS_ED25519_SECRET_KEY_BASE64}" ]]; then
+  echo "WARN: \$HS_ED25519_SECRET_KEY_BASE64 is not defined"
+  echo "INFO: See 'Host persistency' section in README to persistent host"
+else
+  # NOTE: public_key and hostname are automatically generated from the private key
+  echo "${HS_ED25519_SECRET_KEY_BASE64}" | base64 -d > /home/runner/psuedo_root/var/lib/tor/hidden_service/hs_ed25519_secret_key
 
-unset HS_ED25519_SECRET_KEY_BASE64;
+  unset HS_ED25519_SECRET_KEY_BASE64;
+fi
+
 
 trap 'kill $(jobs -p)' EXIT
 
