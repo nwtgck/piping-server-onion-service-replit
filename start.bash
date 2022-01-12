@@ -1,7 +1,7 @@
 #! /bin/bash -e
 
 # Piping Server version
-VERSION=v1.8.1-2
+VERSION=v1.9.0
 # binary directory
 BIN_DIR_PATH=$PWD/bin/$VERSION
 BIN_PATH=$BIN_DIR_PATH/piping-server
