@@ -39,23 +39,30 @@ fi
 
 trap 'kill $(jobs -p)' EXIT
 
-(
-  while :
-  do
-   echo "Starting Piping Server..."
-   kill $(lsof -t -i:8080 -sTCP:LISTEN) || true
-   $BIN_PATH --http-port=8080
-   sleep 1
-  done
-) &
+# (
+#   while :
+#   do
+#    echo "Starting Piping Server..."
+#    kill $(lsof -t -i:8080 -sTCP:LISTEN) || true
+#    $BIN_PATH --http-port=8080
+#    sleep 1
+#   done
+# ) &
 
-(
-  while :
-  do
-   echo "Starting Tor..."
-   tor -f torrc || true
-   sleep 1
-  done
-) &
+# (
+#   while :
+#   do
+#    echo "Starting Tor..."
+#    tor -f torrc || true
+#    # (experiment) kill the server
+#    kill $(lsof -t -i:8080 -sTCP:LISTEN) || true
+#    sleep 1
+#   done
+# ) &
 
-wait
+# wait
+
+# (experimental)
+go run multi-forever.go \
+  "[\"$BIN_PATH\", \"--http-port=8080\"]" \
+  '["tor", "-f", "torrc"]'
