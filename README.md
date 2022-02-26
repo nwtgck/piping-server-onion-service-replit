@@ -23,7 +23,7 @@ cat /home/runner/psuedo_root/var/lib/tor/hidden_service/hostname
 Set `HS_ED25519_SECRET_KEY_BASE64` environment variable in the Replit secrets for hostname persistency. The value is:
 
 ```bash
-cat /home/runner/psuedo_root/var/lib/tor/hidden_service/hs_ed25519_secret_key | base64
+cat /home/runner/psuedo_root/var/lib/tor/hidden_service/hs_ed25519_secret_key | base64 -w 0
 ```
 
 ## Waking up server
