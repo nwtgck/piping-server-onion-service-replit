@@ -1,2 +1,5 @@
 run = "./start.bash"
 onBoot = "./start.bash"
+
+[nix]
+channel = "stable-21_11"
