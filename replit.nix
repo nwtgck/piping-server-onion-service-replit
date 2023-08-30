@@ -2,6 +2,6 @@
   deps = [
     pkgs.tor
     pkgs.lsof
-    pkgs.go_1_18
+    pkgs.go_1_20
   ];
 }
